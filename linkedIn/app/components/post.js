@@ -2,11 +2,11 @@ import React from 'react';
 import {
     View,
     Text,
-    Image
+    Image,
+    Pressable
 } from 'react-native';
 
 import { Name, Paragraph, BoldParagraph, GrayText, FollowText } from './texts';
-import { Profile, Post } from '../constants/images';
 import {
      BaseIcon, 
      SmallIcon,
@@ -16,22 +16,24 @@ import {
      LikeIcon,
      CommentIcon,
      ShareIcon,
-     SendIcon
+     SendIcon,
+     TranslateIcon
 } from './icons';
 import { Colors } from '../constants/theme';
 import { SeeMore } from './buttons';
-import { Krina } from './writes';
+import DisplayMessage from './alert';
+import { Krina, Reena } from './writes';
 import Dot from './dots';
 import { Line } from './line';
 import styles from '../styles';
 
-export const UserPostAction = ({name, action}) =>{
+export const UserPostAction = ({userImg, name, action}) =>{
     return(
         <View style={styles.container}>
             <View style={styles.action}>
                 <View style={styles.userAction}>
                     <Image style={styles.actionPic}
-                    source={Profile.Ade} />
+                    source={userImg} />
                     <BoldParagraph text={name} />
                     <Paragraph text={action} />
                 </View>
@@ -42,7 +44,13 @@ export const UserPostAction = ({name, action}) =>{
     )
 }
 
-export const UserPost = ({name, position, bio, timeSince, status}) =>{
+export const UserPost = ({
+    userImg,
+    name,
+    position,
+    bio,
+    timeSince,
+    status}) =>{
 
     const post = Krina.map((content) => (
         <Text style={styles.paragraph}>{content.body}</Text>
@@ -52,7 +60,7 @@ export const UserPost = ({name, position, bio, timeSince, status}) =>{
         <View style={styles.container}>
             <View style={styles.action}>
                 <Image style={styles.mainPostPic}
-                    source={Profile.Krina} />
+                    source={userImg} />
                 <View style={styles.userDetail}>
                     <View style={styles.smallRow}>
                         <BoldParagraph text={name} />
@@ -72,6 +80,49 @@ export const UserPost = ({name, position, bio, timeSince, status}) =>{
             <View style={styles.post}>
                 {post}
                 <SeeMore />
+            </View>
+            <Line />
+        </View>
+    )
+}
+
+export const ImagePost = ({
+    userImg,
+    name,
+    position,
+    bio,
+    timeSince,
+    status,
+    imagePost}) =>{
+
+    // const post = Reena.map((content) => (
+    //     <Text style={styles.paragraph}>{content.body}</Text>
+    // ))
+
+    return(
+        <View style={styles.container}>
+            <View style={styles.action}>
+                <Image style={styles.mainPostPic}
+                    source={userImg} />
+                <View style={styles.userDetail}>
+                    <View style={styles.smallRow}>
+                        <BoldParagraph text={name} />
+                        <Dot />
+                        <GrayText text={position} />
+                    </View>
+                    <GrayText text={bio} />
+                    <View style={styles.smallRow}>
+                        <GrayText text={timeSince} />
+                        <Dot />
+                        <SmallIcon icon={status} />
+                    </View>
+                </View>
+                <FollowText />
+            </View>
+
+            <View style={styles.imageView}>
+                <Image style={styles.imagePost}
+                 source={imagePost} />
             </View>
             <Line />
         </View>
@@ -122,6 +173,40 @@ export const FeedActions = () =>{
                 <SendIcon />
                 <GrayText text="Send" />
             </View>
+        </View>
+    )
+}
+
+export const TransFeedActions = ({string, translateString}) =>{
+
+    const translateStringToUserLanguage = () =>{
+        translateString(!string);
+        DisplayMessage("Texts on image converted to your language.");
+    }
+
+    return(
+        <View style={styles.feedActions}>
+            <View style={styles.feedIcon}>
+                <LikeIcon />
+                <GrayText text="Like" />
+            </View>
+            <View style={styles.feedIcon}>
+                <CommentIcon />
+                <GrayText text="Comment" />
+            </View>
+            <View style={styles.feedIcon}>
+                <ShareIcon />
+                <GrayText text="Share" />
+            </View>
+            <View style={styles.feedIcon}>
+                <SendIcon />
+                <GrayText text="Send" />
+            </View>
+            <Pressable style={styles.feedIcon}
+            onPress={translateStringToUserLanguage}>
+                <TranslateIcon />
+                <GrayText text="Translate" />
+            </Pressable>
         </View>
     )
 }

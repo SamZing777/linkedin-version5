@@ -14,7 +14,7 @@ const TopTab = () =>{
         <View style={styles.topTab}>
             <View style={styles.pic}>
                 <Image style={styles.userPic}
-                 source={Profile.User} />
+                source={Profile.User} />
             </View>
             <SearchField />
             <Message />

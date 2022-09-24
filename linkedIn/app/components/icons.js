@@ -274,3 +274,9 @@ export const SendIcon = () =>{
         <SvgXml xml={icon} width="20" height="20" color="gray" />
     )
 }
+
+export const TranslateIcon = () =>{
+    return(
+        <Icon name="language" color="gray" size={20} />
+    )
+}

@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-around",
         padding: Spaces.small,
-        marginTop: Spaces.height_base / 1.27,
+        marginTop: Spaces.height_base * 0.0001,
         borderWidth: 0.5,
         borderTopColor: "#ccc",
         backgroundColor: "white",
@@ -179,15 +179,25 @@ const styles = StyleSheet.create({
    },
 
    feedActions: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    paddingTop: Spaces.small / 2,
-    paddingHorizontal: 0
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "space-evenly",
+        paddingTop: Spaces.small / 2,
+        paddingHorizontal: 0
    },
 
    feedIcon: {
-    marginBottom: Spaces.small / 1.10
+        marginBottom: Spaces.small / 1.10,
+        alignItems: "center"
+   },
+
+   imageView: {
+        flex: 1,
+        height: FontSizes.large * 5
+   },
+
+   imagePost: {
+        height: FontSizes.large * 5.07
    }
 })
 

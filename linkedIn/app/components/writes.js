@@ -6,3 +6,10 @@ export const Krina = [
       `
     }
 ]
+
+export const Reena = [
+  { "id": 1, 
+    "body": `    #love_you_maa
+    `
+  }
+]

@@ -9,6 +9,8 @@ export const Profile = {
 }
 
 export const Post = {
-    France: require("../assets/images/France.jpg"),
-    Lajoie: require("../assets/images/lajoie.jpg")
+    Love_Maa_Hindi: require("../assets/images/love_maa.jpg"),
+    Love_Maa_En: require("../assets/images/love_maa_en.png"),
+    Serena_Fr: require("../assets/images/Serena_fr.jpg"),
+    Serena_En: require("../assets/images/Serena_en.jpg")
 }

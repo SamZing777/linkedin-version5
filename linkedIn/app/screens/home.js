@@ -3,8 +3,8 @@ import {
     ScrollView
 } from 'react-native';
 
-import PostPartial from "./partials/post";
 import TopTab from "../components/topTab";
+import { PostPartial, LanguagePost } from "./partials/post";
 import BottomTab from "../components/bottomTab";
 // import { Post } from "../constants/images";
 
@@ -13,6 +13,7 @@ const Home = () =>{
         <ScrollView style={{backgroundColor: "#f2f2f2"}}>
             <TopTab />
             <PostPartial />
+            <LanguagePost />
             <BottomTab />
         </ScrollView>
     )
